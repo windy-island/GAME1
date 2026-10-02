@@ -1,0 +1,89 @@
+/* ADD */
+body {
+	/* width: 1000px; */
+	margin: 20px auto;
+}
+
+body, table, div, p, dl {
+	font-size: 18px;
+}
+
+div#doc-content {
+	/* width: 1000px; */
+	padding: 0 calc((100% - 1000px) / 2);
+	margin: 0 auto;
+}
+
+/* table.memberdecls {
+	display: none;
+} */
+
+h4 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+.marker {
+	background-color: #ffb7b1;
+	font-weight: bold;
+}
+
+dd {
+	width: 90%;
+	display: block;
+	margin: 0 auto;
+	margin-inline-start: auto !important; /* 後から読み込まれるdoxygenのコードを上書き */
+}
+
+div.textblock {
+	box-sizing: border-box;
+	border: solid 1px #a2b8e4;
+	background-color: #eff4ff;
+	padding: 15px 10px;
+}
+
+div.memdoc {
+	background-color: #eff4ff;
+	padding: 15px 10px;
+}
+
+dl.params table {
+	box-sizing: border-box;
+	border: solid 2px #a2b8e4;
+	width: 100%;
+	background-color: #dee8ff;
+	border-collapse:collapse;
+}
+
+dl.params table td {
+	box-sizing: border-box;
+	border: solid 1px #a2b8e4;
+	padding: 5px;
+}
+
+dl.warning {
+	padding: 10px 10px;
+	background-color: #ffe6e6;
+	border: solid 1px red;
+	/* background-color: #fdffbd;
+	border: solid 1px rgb(150, 150, 0); */
+}
+
+dl.important {
+	padding: 10px 10px;
+	background-color: #e6ffe8;
+	border: solid 1px green;
+	color: rgb(0, 72, 0);
+}
+
+dl.important dt {
+	color: rgb(0, 72, 0);
+}
+
+dl.note {
+	padding: 10px 10px;
+	border: solid 1px rgb(150, 150, 0);
+}
