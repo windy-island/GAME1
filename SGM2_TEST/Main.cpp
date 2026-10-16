@@ -16,12 +16,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <stdlib.h>
-#include "test/ManualTest/ManualTestMain.hpp"
-
-constexpr int32 SCREEN_W = 480 * 3;
-constexpr int32 SCREEN_H = 320 * 3;
-
-void manual_test();
+#include "test/ManualTest/ManualTestMainLooper.hpp"
 
 // コンソールの準備
 void ready_console() {
@@ -113,45 +108,16 @@ void Main() {
 	// 手動自動テスト
 	string in = "";
 	while (in != "y" && in != "n") {
-		std::cout << "\nマニュアルテストを実行しますか？( y or n )\n> ";
+		std::cout << "\nマニュアルテストを実施しますか？( y or n )\n> ";
 		std::cin >> in;
 		std::this_thread::sleep_for(15ms);
 	}
 
 	if (in == "y") {
-		manual_test();
+		SGM2_TEST::Manual::manual_test();
 	}
 	else {
 		::system("pause");
-	}
-	return;
-}
-
-void manual_test() {
-	try {
-		Window::Resize(SCREEN_W, SCREEN_H);
-		Scene::SetBackground(Color(0, 0, 0));
-
-		// アンチエイリアスをオフ
-		const ScopedRenderStates2D sampler{ SamplerState::ClampNearest };
-		Scene::SetTextureFilter(TextureFilter::Nearest);
-
-		gsm.reset();
-		gsm.reset(GameStateManager::create_instance(new SGM2_TEST::Manual::GS_ManualTestMain()));
-		Stopwatch stopwatch;
-
-		while (System::Update() && gsm) {
-			stopwatch.restart();
-			ClearPrint();
-			Print << U"FPS: " << (int)(1.0 / Scene::DeltaTime() + 0.5);
-			if (!gsm->update()) { break; }
-			Print << U"{0: >3}"_fmt(stopwatch.ms()) << U" ms";
-		}
-		return;
-	}
-	catch (const std::exception& e) {
-		System::MessageBoxOK(U"exception", Unicode::Widen(e.what()), MessageBoxStyle::Error);
-		throw;
 	}
 	return;
 }

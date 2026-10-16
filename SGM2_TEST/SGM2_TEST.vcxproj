@@ -336,7 +336,8 @@
     <ClInclude Include="test\MacroSet.h" />
     <ClInclude Include="test\AutoTest\Base\Object\TestData.hpp" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="test\ManualTest\ManualTestMain.hpp" />
+    <ClInclude Include="test\ManualTest\GS_Main.hpp" />
+    <ClInclude Include="test\ManualTest\ManualTestMainLooper.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App\example\obj\blacksmith.obj">

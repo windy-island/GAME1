@@ -4,10 +4,10 @@
 
 namespace SGM2_TEST::Manual {
 
-	class GS_ManualTestMain : public GameState {
+	class GS_Main: public GameState {
 
 	public:
-		GS_ManualTestMain() {
+		GS_Main() {
 			load_fonts();
 		}
 
