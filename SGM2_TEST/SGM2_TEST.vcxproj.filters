@@ -833,5 +833,8 @@
     <ClInclude Include="test\AutoTest\Base\GameStateManager\TestData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="test\ManualTest\ManualTestMain.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

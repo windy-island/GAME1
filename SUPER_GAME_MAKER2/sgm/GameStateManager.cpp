@@ -24,8 +24,12 @@ namespace SGM2 {
 	//GameStateManager& GameStateManager::operator=(const GameStateManager&&) = delete;
 
 	GameStateManager* GameStateManager::create_instance(unique_ptr<GameState> initialState) {
-		if (instanceNum != 0 || initialState == nullptr)
-			throw std::runtime_error("GSM生成に失敗");
+		if (initialState == nullptr) {
+			throw std::runtime_error("GSM生成に失敗: 渡されたGSはnullptrです");
+		}
+		if (instanceNum != 0) {
+			throw std::runtime_error("GSM生成に失敗: GSMはすでに存在します");
+		}
 		initialState->set_id(GameState::FIRST_ID);	// これは静的メソッドなので、当然メンバ変数にはアクセスできない
 		return new GameStateManager(std::move(initialState));	//std::make_unique<GameStateManager>(initialState);
 	}
