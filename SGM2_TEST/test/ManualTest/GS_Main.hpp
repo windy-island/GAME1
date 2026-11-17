@@ -6,13 +6,19 @@ namespace SGM2_TEST::Manual {
 
 	class GS_Main: public GameState {
 
+		const Texture bg;
+
 	public:
-		GS_Main() {
+		GS_Main() : bg(U"items/image/BG.JPG") {
+
 			load_fonts();
+			load_bgm();
 		}
 
 	private:
-		void ready() override {}
+		void ready() override {
+			AudioAsset(U"DebugTheme").play();
+		}
 
 		void update() override {
 			if (KeyQ.down()) {
@@ -21,7 +27,12 @@ namespace SGM2_TEST::Manual {
 		}
 
 		void draw() const override {
-			FontAsset(U"M2")(U"マニュアルテストを行います\nQキーで終了").drawAt(Scene::Width() / 2, Scene::Height() - 100, Palette::White);
+			bg.scaled(0.7).drawAt(Scene::Center());
+			const auto textCenterPos = Vec2I(Scene::Width() / 2, Scene::Height() - 130);
+			Rect(Arg::center(textCenterPos + Vec2I{ 0, 24 }), 470, 115).draw(Palette::Black);
+			//FontAsset(U"M2")(U"マニュアルテストを行います\nQキーで終了").drawAt(Scene::Width() / 2, Scene::Height() - 100, Palette::White);
+			FontAsset(U"M2")(U"マニュアルテストを行います").drawAt(textCenterPos, Palette::White);
+			FontAsset(U"M2")(U"Qキーで終了").drawAt(textCenterPos + Vec2I{ 0, 48 }, Palette::White);
 		}
 
 		void load_fonts() const {
@@ -35,6 +46,11 @@ namespace SGM2_TEST::Manual {
 			FontAsset::Load(U"C");
 			FontAsset::Load(U"M1");
 			FontAsset::Load(U"M2");
+		}
+
+		void load_bgm() const {
+			AudioAsset::Register(U"DebugTheme", U"items/bgm/town15.mp3", Loop::Yes);
+			AudioAsset::Load(U"DebugTheme");
 		}
 	};
 }

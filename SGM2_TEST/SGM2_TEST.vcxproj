@@ -337,6 +337,7 @@
     <ClInclude Include="test\AutoTest\Base\Object\TestData.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test\ManualTest\GS_Main.hpp" />
+    <ClInclude Include="test\ManualTest\HitBox\GS_HitBox.hpp" />
     <ClInclude Include="test\ManualTest\ManualTestMainLooper.hpp" />
   </ItemGroup>
   <ItemGroup>

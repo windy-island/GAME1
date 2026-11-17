@@ -839,5 +839,8 @@
     <ClInclude Include="test\ManualTest\ManualTestMainLooper.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="test\ManualTest\HitBox\GS_HitBox.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
